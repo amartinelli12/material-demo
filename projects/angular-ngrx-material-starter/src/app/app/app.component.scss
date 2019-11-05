@@ -5,6 +5,15 @@
   width: 100%;
 }
 
+.myClass {
+  background-color: red;
+  color: white;
+  :hover {
+    background-color: white;
+    color: red;
+  }
+}
+
 mat-sidenav-container {
   height: 100%;
   width: 100%;

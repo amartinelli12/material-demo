@@ -14,11 +14,14 @@ import { authReducer } from './auth/auth.reducer';
 import { RouterStateUrl } from './router/router.state';
 import { settingsReducer } from './settings/settings.reducer';
 import { SettingsState } from './settings/settings.model';
+import { colorsReducer } from '../color-picker/state/colors.reducer';
+import { ColorState } from '../color-picker/state/color.models';
 
 export const reducers: ActionReducerMap<AppState> = {
   auth: authReducer,
   settings: settingsReducer,
-  router: routerReducer
+  router: routerReducer,
+  colors: colorsReducer
 };
 
 export const metaReducers: MetaReducer<AppState>[] = [
@@ -45,8 +48,13 @@ export const selectRouterState = createFeatureSelector<
   RouterReducerState<RouterStateUrl>
 >('router');
 
+export const selectColorsState = createFeatureSelector<AppState, ColorState>(
+  'colors'
+);
+
 export interface AppState {
   auth: AuthState;
   settings: SettingsState;
   router: RouterReducerState<RouterStateUrl>;
+  colors: ColorState;
 }

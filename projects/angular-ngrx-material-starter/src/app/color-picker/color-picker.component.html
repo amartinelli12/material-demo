@@ -1,0 +1,11 @@
+<div *ngIf="(colors$ | async)" class="color-palette-container">
+    <div
+        *ngFor="let color of (colors$ | async); trackBy: trackByFunc"
+        [style.color]="invertColor(color)"
+        [style.backgroundColor]="color.hexString"
+        [style.transform]="color.degree"
+        class="color-palette-item"
+    >
+</div>
+</div>
+

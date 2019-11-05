@@ -22,7 +22,7 @@ import {
 } from '../core/settings/settings.actions';
 
 @Component({
-  selector: 'anms-root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [routeAnimations]
@@ -31,17 +31,18 @@ export class AppComponent implements OnInit {
   isProd = env.production;
   envName = env.envName;
   version = env.versions.app;
+  myClass: string = 'base';
   year = new Date().getFullYear();
   logo = require('../../assets/logo.png');
   languages = ['en', 'de', 'sk', 'fr', 'es', 'pt-br', 'zh-cn', 'he'];
   navigation = [
-    { link: 'about', label: 'anms.menu.about' },
-    { link: 'feature-list', label: 'anms.menu.features' },
-    { link: 'examples', label: 'anms.menu.examples' }
+    { link: 'about', label: 'app.menu.about' },
+    { link: 'feature-list', label: 'app.menu.features' },
+    { link: 'examples', label: 'app.menu.examples' }
   ];
   navigationSideMenu = [
     ...this.navigation,
-    { link: 'settings', label: 'anms.menu.settings' }
+    { link: 'settings', label: 'app.menu.settings' }
   ];
 
   isAuthenticated$: Observable<boolean>;
@@ -72,6 +73,10 @@ export class AppComponent implements OnInit {
     this.stickyHeader$ = this.store.pipe(select(selectSettingsStickyHeader));
     this.language$ = this.store.pipe(select(selectSettingsLanguage));
     this.theme$ = this.store.pipe(select(selectEffectiveTheme));
+  }
+
+  myHover() {
+    alert('Hi Mike!');
   }
 
   onLoginClick() {

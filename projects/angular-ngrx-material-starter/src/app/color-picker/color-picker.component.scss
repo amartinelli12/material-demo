@@ -1,0 +1,14 @@
+.color-palette-item {
+  position: absolute;
+  width: 300px;
+  height: 1px;
+}
+
+.color-palette-item:hover {
+  height: 10px;
+}
+
+.color-palette-container {
+  position: relative;
+  margin-top: 30%;
+}
