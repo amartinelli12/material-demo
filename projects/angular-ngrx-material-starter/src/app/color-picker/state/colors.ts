@@ -1,5 +1,4 @@
 import { Color } from './color.models';
-
 export const colors: Color[] = [
   {
     colorId: 0,

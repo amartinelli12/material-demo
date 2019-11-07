@@ -1,6 +1,6 @@
 import { createAction, props, ActionCreator } from '@ngrx/store';
 
-import { Color } from './color.models';
+import { Color, MatColor } from './color.models';
 import { TypedAction } from '@ngrx/store/src/models';
 
 const featureNameSpace: '[Colors]' = '[Colors]';
@@ -21,11 +21,12 @@ const colorsNamespacedActionCreator = featureNameSpacedActionCreator(
   featureNameSpace
 );
 
-export const actionColorsSelectColor = createAction(
-  `Select Color`,
-  props<{ selectedColor: Color }>()
+export const actionColorsSelectPrimaryColor = createAction(
+  `${featureNameSpace} Select Primary Color`,
+  props<{ primaryColors: MatColor[] }>()
 );
 
-export const actionColorsClearSelectedColor = createAction(
-  `${featureNameSpace} Clear Selected Color`
+export const actionColorsSelectSecondayColor = createAction(
+  `${featureNameSpace} Select Seconday Color`,
+  props<{ secondaryColors: MatColor[] }>()
 );

@@ -21,5 +21,17 @@ export interface Color {
 
 export interface ColorState {
   colors: Color[];
-  selectedColor: Color;
+  primaryColors: MatColor[];
+  secondaryColors: MatColor[];
+}
+
+export interface MatColor {
+  name: string;
+  hex: string;
+  darkContrast: boolean;
+}
+
+export enum ColorRank {
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary'
 }

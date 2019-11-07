@@ -2,8 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ColorsFacade } from './state/colors.facade';
-import { Color } from './state/color.models';
-import { tap } from 'rxjs/operators';
+import { Color, MatColor } from './state/color.models';
 
 @Component({
   selector: 'app-color-picker',
@@ -13,12 +12,12 @@ import { tap } from 'rxjs/operators';
 })
 export class ColorPickerContainerComponent implements OnInit {
   colors$: Observable<Color[]>;
-  selectedColor$: Observable<Color>;
+  primaryColors$: Observable<MatColor[]>;
   constructor(private facade: ColorsFacade) {}
 
   ngOnInit() {
     this.colors$ = this.facade.colors$;
-    this.selectedColor$ = this.facade.selectedColor$;
+    this.primaryColors$ = this.facade.primaryColors$;
   }
 
   trackByFunc(index: number, color: Color) {
@@ -36,5 +35,9 @@ export class ColorPickerContainerComponent implements OnInit {
   rgbToHex(val: number) {
     const convertedHex = Number(val).toString(16);
     return convertedHex.length < 2 ? `0${convertedHex}` : convertedHex;
+  }
+
+  selectPrimaryColor(color: Color) {
+    this.facade.pickPrimaryColor(color.hexString);
   }
 }

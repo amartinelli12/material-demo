@@ -1,25 +1,23 @@
 import { ColorState } from './color.models';
 import { colors } from './colors';
 import { Action, createReducer, on } from '@ngrx/store';
-import {
-  actionColorsSelectColor,
-  actionColorsClearSelectedColor
-} from './colors.actions';
+import * as fromActions from './colors.actions';
 
 export const initialState: ColorState = {
   colors,
-  selectedColor: null
+  primaryColors: [],
+  secondaryColors: []
 };
 
 const reducer = createReducer(
   initialState,
-  on(actionColorsSelectColor, (state, action) => ({
+  on(fromActions.actionColorsSelectPrimaryColor, (state, action) => ({
     ...state,
-    selectedColor: action.selectedColor
+    primaryColors: action.primaryColors
   })),
-  on(actionColorsClearSelectedColor, (state, action) => ({
+  on(fromActions.actionColorsSelectSecondayColor, (state, action) => ({
     ...state,
-    selectedColor: null
+    secondaryColors: action.secondaryColors
   }))
 );
 

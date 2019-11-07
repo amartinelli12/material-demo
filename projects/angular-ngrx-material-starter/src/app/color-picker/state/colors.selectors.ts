@@ -12,7 +12,12 @@ export const selectAllColor = createSelector(
   (state: ColorState) => state.colors
 );
 
-export const selectChosenColor = createSelector(
+export const selectPrimaryColors = createSelector(
   selectColors,
-  (state: ColorState) => state.selectedColor
+  (state: ColorState) => state.primaryColors
+);
+
+export const selectSecondaryColors = createSelector(
+  selectColors,
+  (state: ColorState) => state.secondaryColors
 );
