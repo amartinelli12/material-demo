@@ -5,14 +5,17 @@ import { ColorsFacade } from './state/colors.facade';
 import { Color, MatColor } from './state/color.models';
 
 @Component({
-  selector: 'app-color-picker',
-  templateUrl: './color-picker.component.html',
-  styleUrls: ['./color-picker.component.scss'],
+  selector: 'app-color-picker-container',
+  templateUrl: './color-picker-container.component.html',
+  styleUrls: ['./color-picker-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ColorPickerContainerComponent implements OnInit {
   colors$: Observable<Color[]>;
   primaryColors$: Observable<MatColor[]>;
+  wheelRadius: string = '100px';
+  wheelSliceHeight: string = '1px';
+  wheelHoverHeight: string = '5px';
   constructor(private facade: ColorsFacade) {}
 
   ngOnInit() {

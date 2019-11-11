@@ -5,7 +5,7 @@ import { SharedModule } from '../../shared/shared.module';
 
 import { SettingsRoutingModule } from './settings-routing.module';
 import { SettingsContainerComponent } from './settings/settings-container.component';
-import { ColorPickerModule } from '../../color-picker/color-picker.module';
+import { ColorPickerContainerModule } from '../../color-picker/color-picker-container.module';
 
 @NgModule({
   declarations: [SettingsContainerComponent],
@@ -13,7 +13,7 @@ import { ColorPickerModule } from '../../color-picker/color-picker.module';
     CommonModule,
     SharedModule,
     SettingsRoutingModule,
-    ColorPickerModule
+    ColorPickerContainerModule
   ]
 })
 export class SettingsModule {}

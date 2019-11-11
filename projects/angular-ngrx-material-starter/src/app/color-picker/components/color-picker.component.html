@@ -1,0 +1,14 @@
+<div *ngIf="colors" class="color-palette-container">
+    <div
+        *ngFor="let color of colors; let i = index; trackBy: trackByFunc"
+        [style.backgroundColor]="color.hexString"
+        [style.transform]="color.degree"
+        class="color-palette-item"
+        (click)="selectPrimaryColor(color)"
+        [style.width]="radius"
+        [style.height]="setStyle(color, i)"
+        (mouseover)="hover(color, i)"
+        (mouseout)="hover()"
+    >
+    </div>
+</div>

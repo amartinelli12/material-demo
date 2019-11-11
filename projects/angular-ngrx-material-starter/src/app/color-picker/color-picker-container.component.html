@@ -1,22 +1,20 @@
-<div *ngIf="(colors$ | async)" class="color-palette-container">
-    <div
-        *ngFor="let color of (colors$ | async); trackBy: trackByFunc"
-        [style.color]="invertColor(color)"
-        [style.backgroundColor]="color.hexString"
-        [style.transform]="color.degree"
-        class="color-palette-item"
-        (click)="selectPrimaryColor(color)"
-    >
-    </div>
-</div>
 
-<div
+<div class="color-picker">
+    <app-color-picker
+        [colors]="colors$ | async"
+        [radius]="wheelRadius"
+        [sliceHeight]="wheelSliceHeight"
+        [hoverHeight]="wheelHoverHeight"
+        (pickColor)="selectPrimaryColor($event)"
+    ></app-color-picker>
+    <div
     class="color-selection"
     *ngIf="(selectedColor$ | async) as color"
     [style.color]="invertColor(color)"
     [style.backgroundColor]="color.hexString"
 >
     {{ color.hexString }}
+</div>
 </div>
 
 
